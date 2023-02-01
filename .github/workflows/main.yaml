@@ -34,7 +34,7 @@ jobs:
 
     - name: get version
       run: |
-          echo "TAG_NAME=`git rev-parse --short '$GITHUB_SHA'`" >> $GITHUB_OUTPUT
+          echo "TAG_NAME=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
       id: version
       
     - name: Build and push Docker image
