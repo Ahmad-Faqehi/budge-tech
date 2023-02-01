@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
   repository: ahmad75/chatbot
-  version: main-507afe9
+  version: main-d4d5512
 
 imagePullSecrets: []
 nameOverride: ""
