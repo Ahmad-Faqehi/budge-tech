@@ -1,4 +1,5 @@
 
+import os
 import pyodbc
 import pandas as pd
 import psycopg2
@@ -18,7 +19,7 @@ class AqarRecommendation:
         self.input_rooms = int(input_rooms)
         # connect to postgres
         try: 
-            self.conn = psycopg2.connect("hostdb_host dbname=db_name user=db_user password=db_password")
+            self.conn = psycopg2.connect("host="+db_host+ "dbname="+db_name+ "user="+db_user+ "password="+db_password)
             print("Connected")
         except psycopg2.Error as e: 
             print("Error: Could not make connection to the Postgres database")

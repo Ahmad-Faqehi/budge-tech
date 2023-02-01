@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/alibaba-cloud-loadbalancer-spec: slb.s1.small
+  creationTimestamp: '2023-02-01T17:56:46Z'
+  finalizers:
+    - service.k8s.alibaba/resources
+  labels:
+    service.beta.kubernetes.io/hash: 0842a38bdb8e2c1acadad958e81c6971b11ec2184d1ff89c8f70810e
+    service.k8s.alibaba/loadbalancer-id: lb-l4vp8xky5dqjjse0t4ecs
+  managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:service.beta.kubernetes.io/alibaba-cloud-loadbalancer-spec': {}
+        'f:spec':
+          'f:allocateLoadBalancerNodePorts': {}
+          'f:externalTrafficPolicy': {}
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":80,"protocol":"TCP"}':
+              .: {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+      manager: ACK-Console Apache-HttpClient
+      operation: Update
+      time: '2023-02-01T17:56:46Z'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:finalizers':
+            .: {}
+            'v:"service.k8s.alibaba/resources"': {}
+      manager: cloud-controller-manager
+      operation: Update
+      time: '2023-02-01T17:56:46Z'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:service.beta.kubernetes.io/hash': {}
+            'f:service.k8s.alibaba/loadbalancer-id': {}
+        'f:status':
+          'f:loadBalancer':
+            'f:ingress': {}
+      manager: cloud-controller-manager
+      operation: Update
+      subresource: status
+      time: '2023-02-01T17:57:02Z'
+  name: budget-tech-svc
+  namespace: default
+  resourceVersion: '45178'
+  uid: 0aeb732e-082b-4e1b-b1a4-a2b1b28f1c08
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 192.168.204.130
+  clusterIPs:
+    - 192.168.204.130
+  externalTrafficPolicy: Local
+  healthCheckNodePort: 31007
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - nodePort: 31232
+      port: 80
+      protocol: TCP
+      targetPort: 5000
+  selector:
+    app: budget-tech
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+      - ip: 8.213.18.251

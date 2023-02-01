@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap
+data:
+  DB_NAME: "postgres"
+  DB_HOST: "pgm-l4vl24xp3k6an4kudo.pgsql.me-central-1.rds.aliyuncs.com"
+  DB_USER: "superuser"
