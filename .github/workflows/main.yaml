@@ -4,7 +4,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    # branches: [ main ]
+      tags:
+      - "*"
 jobs:
   build:
     name: Build and Pushing the Image
@@ -12,7 +14,9 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.TOKEN_GIT }}
 
         
     - name: Update Version
@@ -24,5 +28,5 @@ jobs:
     - name: Commit and push changes
       uses: devops-infra/action-commit-push@v0.3
       with:
-        github_token: ${{ secrets.CUSTOME_GITHUB_TOKEN }}
+        github_token: ${{ secrets.TOKEN_GIT }}
         commit_message: Version updated
