@@ -5,6 +5,8 @@ name: CI
 on:
   push:
     branches: [ main ]
+    paths: 
+       - 'application/**'
       # tags:
       # - "*"
 jobs:
