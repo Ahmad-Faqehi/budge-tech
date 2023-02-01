@@ -24,4 +24,4 @@ bot.fillTrainingMatrices()
 bot.createTrainingModels(neurons=n)
 bot.loadModelWeights('weights.h5')
 bot.trainModel(batchSize=bs, epochs=ep)
-#test12
+#test123
