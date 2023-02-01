@@ -34,7 +34,7 @@ body, html {
     -webkit-box-shadow: 0 0 1px #dc0099;
     box-shadow: 0 0 1px #dc0099;
     text-align: center;
-    background-color: #dc0099;
+    background-color: #97bd8b;
     color: white;
     padding: 20px;
     display: inline-block;
@@ -377,7 +377,7 @@ body, html {
 }
 
 .him {
-    background: #d0d0d0;
+    background: #97bd8b;
     float: left;
     margin-right: 20px;
     -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -393,7 +393,7 @@ body, html {
     width: 0;
     height: 0;
     border: 8px solid transparent;
-    border-right-color: #d0d0d0;
+    border-right-color: #97bd8b;
     border-left: 0;
     margin-top: -8px;
     margin-left: -8px;

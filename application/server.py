@@ -3,6 +3,7 @@ import json
 from flask import Flask, render_template, request
 
 from bot import BotModel
+from aqar_recommendation import AqarRecommendation
 
 bot = BotModel()
 
@@ -34,6 +35,12 @@ def worker():
     ret = [ans, imgs]
     return json.dumps(ret)
 
-
+@app.route('/getrecommendation', methods=['POST'])
+def worker2():
+    data = request.get_json()
+    recom = AqarRecommendation(data['montly_salary'], data['input_district'], data['input_rooms']).main()
+    ret = [recom, ""]
+    return json.dumps(ret)
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
