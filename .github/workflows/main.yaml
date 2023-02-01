@@ -37,7 +37,7 @@ jobs:
       with:
         context: ./application/
         push: true
-        tags: ahmad75/chatbot:${GITHUB_REF##*/}-$git_hash
+        tags: ahmad75/chatbot:${GITHUB_REF##*/}-$(git rev-parse --short "$GITHUB_SHA")
         # labels: ${{ steps.meta.outputs.labels }}
         
     - name: Update Version
