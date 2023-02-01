@@ -42,7 +42,7 @@ jobs:
       with:
         context: ./application/
         push: true
-        tags: ahmad75/chatbot:${GITHUB_REF##*/}-${{ steps.version.outputs.TAG_NAME }}
+        tags: ahmad75/chatbot:main-${{ steps.version.outputs.TAG_NAME }}
         # labels: ${{ steps.meta.outputs.labels }}
         
     - name: Update Version
