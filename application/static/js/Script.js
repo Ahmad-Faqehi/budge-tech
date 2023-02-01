@@ -1,5 +1,10 @@
 ﻿// JavaScript source code
 
+var montly_salary = 0
+var input_district = ''
+var input_rooms = 0
+var last_msg = ''
+
 function format_date(date) {
     var h = date.getHours();
     var m = date.getMinutes();
@@ -53,18 +58,36 @@ $("#send").on("click", function () {
 });
 
 function send_req(qst) {
-    $.ajax({
-        type: "POST",
-        url: "/receiver",
-        data: JSON.stringify(qst),
-        dataType: 'json',
-        contentType: 'application/json;charset=UTF-16',
-        success: function (res) { recieve_res(res); }
-    });
+	if (last_msg == " في اي مدينة ") input_district = qst
+	if (last_msg == " كم عدد الغرف ") input_rooms = qst
+	if (last_msg == " كم الراتب الشهري ") montly_salary = qst
+	if (input_district != '' && input_rooms && montly_salary){
+		$.ajax({
+			type: "POST",
+			url: "/getrecommendation",
+			data: JSON.stringify({'input_district':input_district, 'input_rooms':input_rooms, 'montly_salary':montly_salary}),
+			dataType: 'json',
+			contentType: 'application/json;charset=UTF-16',
+			success: function (res) { recieve_res(res); }
+		});
+		input_district = ''
+		input_rooms = 0
+		montly_salary = 0
+	} else {
+		$.ajax({
+			type: "POST",
+			url: "/receiver",
+			data: JSON.stringify(qst),
+			dataType: 'json',
+			contentType: 'application/json;charset=UTF-16',
+			success: function (res) { recieve_res(res); }
+		});
+	}
 }
 
 function recieve_res(res) {
     var msg = res[0];
+	last_msg = msg;
     var imgs_ids = res[1];
     if (msg === " # ") {
         msg = "أرقام القطع التي قمت بحجزها: ";

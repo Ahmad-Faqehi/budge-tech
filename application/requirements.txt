@@ -2,7 +2,7 @@ flask
 numpy
 keras
 tensorflow
-matplotlib
 pyodbc
 pandas
 psycopg2
+matplotlib
