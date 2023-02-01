@@ -25,6 +25,6 @@ jobs:
     - name: Commit and push changes
       uses: devops-infra/action-commit-push@v0.3
       with:
-        github_token: ${{ secrets.CUSTOME_GITHUB_TOKEN }}
+        github_token: ${{ secrets.TOKEN_GIT }}
         branch: main
         commit_message: Version updated
