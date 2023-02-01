@@ -3,12 +3,12 @@ kind: Service
 metadata:
   annotations:
     service.beta.kubernetes.io/alibaba-cloud-loadbalancer-spec: slb.s1.small
-  creationTimestamp: '2023-02-01T17:56:46Z'
+  creationTimestamp: '2023-02-01T23:30:29Z'
   finalizers:
     - service.k8s.alibaba/resources
   labels:
-    service.beta.kubernetes.io/hash: 0842a38bdb8e2c1acadad958e81c6971b11ec2184d1ff89c8f70810e
-    service.k8s.alibaba/loadbalancer-id: lb-l4vp8xky5dqjjse0t4ecs
+    service.beta.kubernetes.io/hash: 5d2ef643d581ee2476d10351ca37c42691b0d5932e1fe65d0ae97c73
+    service.k8s.alibaba/loadbalancer-id: lb-l4v55qf1qbrgxc4p90af4
   managedFields:
     - apiVersion: v1
       fieldsType: FieldsV1
@@ -21,6 +21,7 @@ metadata:
           'f:allocateLoadBalancerNodePorts': {}
           'f:externalTrafficPolicy': {}
           'f:internalTrafficPolicy': {}
+          'f:ipFamilyPolicy': {}
           'f:ports':
             .: {}
             'k:{"port":80,"protocol":"TCP"}':
@@ -33,7 +34,7 @@ metadata:
           'f:type': {}
       manager: ACK-Console Apache-HttpClient
       operation: Update
-      time: '2023-02-01T17:56:46Z'
+      time: '2023-02-01T23:30:29Z'
     - apiVersion: v1
       fieldsType: FieldsV1
       fieldsV1:
@@ -43,7 +44,7 @@ metadata:
             'v:"service.k8s.alibaba/resources"': {}
       manager: cloud-controller-manager
       operation: Update
-      time: '2023-02-01T17:56:46Z'
+      time: '2023-02-01T23:30:29Z'
     - apiVersion: v1
       fieldsType: FieldsV1
       fieldsV1:
@@ -58,32 +59,32 @@ metadata:
       manager: cloud-controller-manager
       operation: Update
       subresource: status
-      time: '2023-02-01T17:57:02Z'
-  name: budget-tech-svc
+      time: '2023-02-01T23:30:49Z'
+  name: app-svc
   namespace: default
-  resourceVersion: '45178'
-  uid: 0aeb732e-082b-4e1b-b1a4-a2b1b28f1c08
+  resourceVersion: '143051'
+  uid: 84506a60-3110-4aac-82b5-f53afbca62e3
 spec:
   allocateLoadBalancerNodePorts: true
-  clusterIP: 192.168.204.130
+  clusterIP: 192.168.54.56
   clusterIPs:
-    - 192.168.204.130
+    - 192.168.54.56
   externalTrafficPolicy: Local
-  healthCheckNodePort: 31007
+  healthCheckNodePort: 30130
   internalTrafficPolicy: Cluster
   ipFamilies:
     - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-    - nodePort: 31232
+    - nodePort: 30993
       port: 80
       protocol: TCP
       targetPort: 5000
   selector:
-    app: budget-tech
+    app: budge-tech
   sessionAffinity: None
   type: LoadBalancer
 status:
   loadBalancer:
     ingress:
-      - ip: 8.213.18.251
+      - ip: 8.213.18.76
