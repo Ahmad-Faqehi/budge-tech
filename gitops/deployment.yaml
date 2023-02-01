@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: budge-tech
+  name: appdeployemnt
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: budge-tech
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: budge-tech
+    spec:
+      containers:
+      - image: ahmad75/chatbot:main-6bda9e1
+        name: budge-tech-app
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: dbhost
+          value: "dbsvc"
+          
+        # - name: dbuser
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: sqlinit
+        #       key: MYSQL_USER
+        # - name: dbpass
+        #   valueFrom:
+        #         secretKeyRef:
+        #           name: db-secret
+        #           key: MYSQL_PASSWORD
+        # - name: dbname
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: sqlinit
+        #       key: MYSQL_DATABASE
+        ports:
+        - containerPort: 5000
