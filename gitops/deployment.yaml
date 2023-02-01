@@ -16,7 +16,7 @@ spec:
         app: budge-tech
     spec:
       containers:
-      - image: ahmad75/chatbot:main-481aa70
+      - image: ahmad75/chatbot:main-d59b711
         name: budge-tech-app
         imagePullPolicy: IfNotPresent
         env:
