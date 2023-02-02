@@ -1,7 +1,6 @@
 flask
 numpy
 keras
-tensorflow
 pyodbc
 pandas
 psycopg2
