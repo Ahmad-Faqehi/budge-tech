@@ -8,7 +8,12 @@ variable "secret_key" {  #Todo: uncomment the default value and add your secert 
         default = "" 
 }
 
-variable "region" {  #Todo: uncomment the default value and add your secert key.
+variable "region" {  
         description = "Zone ID"
         default = "me-central-1" 
+}
+
+variable "name" {  
+        description = "RDS instance name"
+        default = "pg_chatbot" 
 }
