@@ -26,7 +26,6 @@
 - We used [Alibaba Cloud](https://www.alibabacloud.com/) to host our application.
 - We used [Terraform](https://www.terraform.io/) tool for automate the infrastructure building on cloud. 
 <br>
-<br>
 
 # Running The Application Using Docker 🐬
 To run the application, you should have Postgres running first, below example of running Postgres database with Docker.
@@ -50,14 +49,13 @@ Now, you can access the application by opening the following url:
 <br>
 http://localhost/
 <br>
-<br>
+
 # Acknowledgments ✨
 Thanks goes to these wonderful people who made the impossible done
 - [Samirah Alhusayni](https://www.linkedin.com/in/samirah-alhusayni-/)
 - [Abduljawad Kuaitan](https://www.linkedin.com/in/abduljawad-kuaitan-83a7471a8/)
 - [Shahad Alameel](https://www.linkedin.com/in/shahadalameel/)
 - [Abdullah Alshamrani](https://www.linkedin.com/in//)
-<br>
 <br>
 
 <!-- CONTACT -->
