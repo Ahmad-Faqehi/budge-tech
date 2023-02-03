@@ -1,15 +1,13 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   labels:
     app: budge-tech
-  name: appdeployemnt
+  name: web-chatbot
 spec:
-  replicas: 6
   selector:
     matchLabels:
       app: budge-tech
-  strategy: {}
   template:
     metadata:
       labels:
@@ -25,7 +23,7 @@ spec:
             configMapKeyRef:
               name: configmap
               key: DB_HOST
-        
+
         - name: DB_NAME
           valueFrom:
             configMapKeyRef:
@@ -37,7 +35,7 @@ spec:
             configMapKeyRef:
               name: configmap
               key: DB_USER
-              
+
         - name: DB_PASSWORD
           valueFrom:
                 secretKeyRef:
