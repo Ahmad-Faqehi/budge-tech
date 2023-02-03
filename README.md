@@ -27,6 +27,7 @@
 - We used [Terraform](https://www.terraform.io/) tool for automate the infrastructure building on cloud. 
 <br>
 <br>
+
 # Running The Application Using Docker 🐬
 To run the application, you should have Postgres running first, below example of running Postgres database with Docker.
 ``` shell
