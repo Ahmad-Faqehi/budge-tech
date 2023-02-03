@@ -59,7 +59,9 @@ Thanks goes to these wonderful people who made the impossible done
 - [Abdullah Alshamrani](https://www.linkedin.com/in//)
 <br>
 <br>
+
 <!-- CONTACT -->
+
 ## Contact
 
 [Ahmad Faqehi](https://www.linkedin.com/in/ahmad-faqehi/) - [@A_F775](https://twitter.com/A_F775) - alfaqehi775@hotmail.com
