@@ -55,7 +55,7 @@ Thanks goes to these wonderful people who made the impossible done
 - [Samirah Alhusayni](https://www.linkedin.com/in/samirah-alhusayni-/)
 - [Abduljawad Kuaitan](https://www.linkedin.com/in/abduljawad-kuaitan-83a7471a8/)
 - [Shahad Alameel](https://www.linkedin.com/in/shahadalameel/)
-- [Abdullah Alshamrani](https://www.linkedin.com/in//)
+- [Abdullah Alshamrani](https://www.linkedin.com/in/abdullah-alshamrani-158a00158/)
 <br>
 
 <!-- CONTACT -->
