@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI/CD Pipeline 💫
 
 on:
   push:
@@ -10,51 +10,93 @@ on:
       # tags:
       # - "*"
 jobs:
-  build:
-    name: Build and Pushing the Image
+  building_testing:
+    name: Build & Test Image ⛏
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
+    - name: Checkout 🗃️
       uses: actions/checkout@v3
       with:
         token: ${{ secrets.TOKEN_GIT }}
 
-    - name: Log in to Docker Hub
+    - name: Building Dockerfile 🐳
+      run: |
+          docker build ./application/ -t testing
+      id: build
+    
+    - name: Runngin the Image ⚡️
+      run: |
+          docker ps
+          docker run -d -p 80:5000 --name testing testing
+          docker ps
+          sleep 5
+      id: run
+  
+    - name: Testing the image 🎯
+      run: |
+          docker ps
+          sleep 10
+          docker logs testing
+          #curl localhost
+          echo "The test result📈: "
+          result=$(curl -Is localhost | head -n 1 | awk '{print $2}')
+          if [ $result -eq 200 ]; then echo "it's Working 😁"; else echo "Not Work 🤡"; exit 1; fi
+      id: testing
+
+  pushing:
+    name: Push the Image 🚀
+    runs-on: ubuntu-latest
+    needs: building_testing
+    steps:
+
+    - name: Checkout 🗃️
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.TOKEN_GIT }}
+
+    - name: Log in to Docker Hub 🔐
       uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       
-    - name: Extract metadata (tags, labels) for Docker
+    - name: Extract metadata for Docker 📄
       id: meta
       uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
       with:
         images: ahmad75/chatbot
 
-    - name: get version
+    - name: Get Version 🔍️
       run: |
           echo "TAG_NAME=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
       id: version
-      
-    - name: Build and push Docker image
+  
+
+    - name: Build and push Docker image 🐳
       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
       with:
         context: ./application/
         push: true
         tags: ahmad75/chatbot:main-${{ steps.version.outputs.TAG_NAME }}
-        # labels: ${{ steps.meta.outputs.labels }}
-        
-    - name: Update Version
+   
+  update_gitops:
+    name: Update GitOps 💥
+    runs-on: ubuntu-latest
+    needs: pushing
+    steps:  
+    - name: Checkout 🗃️
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.TOKEN_GIT }}
+
+    - name: Update Version 💬
       run: |
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
           version=$(cat ./gitops/daemonset.yaml | grep image: | awk '{print $3}' | cut -d ':' -f 2)
           sed -i "s/$version/${GITHUB_REF##*/}-$git_hash/" ./gitops/daemonset.yaml
-
           
-    - name: Commit and push changes
+    - name: Commit and push Changes 🚀
       uses: devops-infra/action-commit-push@v0.3
       with:
         github_token: ${{ secrets.TOKEN_GIT }}
         commit_message: Version updated
-        # target_branch: gitops
