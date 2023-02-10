@@ -3,8 +3,6 @@
     <img src="https://i.imgur.com/c1BF8T7.png" alt="Logo" width="200">
     <br>
     The First Arabic FinTech ChatBot, build Using AI to Help You Saving Your Money.
-    <br />
-    <a href="http://8.213.17.11/">View Demo</a>
   </p>
 </p>
 
@@ -19,12 +17,20 @@
 - We are running the application as container using [Docker](https://www.docker.com/), which help us fast building and running on any environment.
 - We manage the containers by using [Kubernetes](https://kubernetes.io/), which help us to create cluster for the application and implement the CICD and high availability by scaling the nodes.
 ## 4- CI/CD ♾️
-- We implemented the continuous integration and continuous deployment (<b>CI/CD</b>) methodology, which help us to automate the testing & deployment the new changes.
+- We implemented the continuous integration and continuous deployment (<b>CI/CD</b>) methodology, which help us to automate the testing & deployment the new changes. Below is the flow diagram of CICD.
+
+<br>
+<img src="https://i.imgur.com/srvDUsN.jpg" alt="cicd">
+
 - We used [GitHub Action](https://github.com/features/actions) for integration and to running the automation pipelines
 - For delivering the new build to production, we used [ArgoCD](https://argo-cd.readthedocs.io/en/stable), which help us syncing the [GitOps](https://www.gitops.tech/) and deploy it into Kubernetes cluster.
 ## 5- Cloud Deployment ☁️
-- We used [Alibaba Cloud](https://www.alibabacloud.com/) to host our application.
-- We used [Terraform](https://www.terraform.io/) tool for automate the infrastructure building on cloud. 
+- We used [Alibaba Cloud](https://www.alibabacloud.com/) to host our application. Below is the infrastructure diagram of our application.
+
+<br>
+<img src="https://i.imgur.com/2ObHx1I.jpg" alt="infra">
+
+- We used [Terraform](https://www.terraform.io/) tool for automate the infrastructure building on Ali cloud. 
 <br>
 
 # Running The Application Using Docker 🐬
