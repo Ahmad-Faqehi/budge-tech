@@ -2,7 +2,7 @@
 <p align="center">
     <img src="https://i.imgur.com/c1BF8T7.png" alt="Logo" width="200">
     <br>
-    The First Arabic FinTech ChatBot, build Using AI to Help You Saving Your Money.
+    FinTech ChatBot
   </p>
 </p>
 
